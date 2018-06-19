@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54aa04ee-6c97-4553-9fc4-67ba4d90ce4b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Wrap/objloader.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wrap/objloader.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +13,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="agisoftMarkersToWrapMarkers.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="agisoftMarkersToWrapMarkers.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="354">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -27,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="loadAgisoftOut3D.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="loadAgisoftOut3D.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Wrap/loadAgisoftOut3D.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
@@ -51,10 +49,11 @@
       <list>
         <option value="$PROJECT_DIR$/Wrap/objloader.py" />
         <option value="$PROJECT_DIR$/Wrap/loadAgisoftOut3D.py" />
+        <option value="$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="240" />
     <option name="y" value="130" />
     <option name="width" value="1440" />
@@ -176,28 +175,33 @@
           <line>41</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py</url>
+          <line>114</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/Wrap/objloader.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Wrap/loadAgisoftOut3D.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="19" column="36" selection-start-line="19" selection-start-column="36" selection-end-line="19" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

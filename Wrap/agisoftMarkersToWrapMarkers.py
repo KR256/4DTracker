@@ -39,15 +39,14 @@ NUM_FRAMES = len(markersAtFrame)
 NUM_MARKERS = len(markersAtFrame[0])
 
 # 3D POINTS to FACES for Wrap.
-MESH_DIR = 'C:\\kyleBathStuff\\PaddyTracking\\meshes'
+MESH_DIR = 'C:\kyleBathStuff\PaddyTracking\paddyVid2Meshes'
 agisoftMeshFileNames = glob.glob(os.path.join(MESH_DIR, '*.obj'))
-NUM_FRAMES = len(agisoftMeshFileNames)
 # NUM_FRAMES = 3;
 allMarkerFaces = [[]] * NUM_FRAMES
 for f in range(NUM_FRAMES):
     frameMarkers = markersAtFrame[f]
     #meshName = agisoftPointsFileNames[f]
-    meshName = os.path.join(MESH_DIR,'paddyFrame%d.obj' % (f+1))
+    meshName = os.path.join(MESH_DIR,'frame.%d.obj' % (f+1))
     print("Reading in %s\n" % meshName)
     # frameMesh = pymesh.load_mesh(meshName)
     frameMesh = objloader.ObjLoader(meshName)
@@ -113,7 +112,7 @@ for f in range(NUM_FRAMES):
     allMarkerFaces[f] = markerFaces
 
 # Write to txt file compatable with Wrap.
-OUT_WRAP_PATH = 'C:\\kyleBathStuff\\Wrap\\WrapMarkersSparse300k'
+OUT_WRAP_PATH = 'C:\\kyleBathStuff\\Wrap\\WrapMarkersSparse300k\\'
 # print allMarkerFaces[0]
 for f in range(NUM_FRAMES):
     outfileName = OUT_WRAP_PATH + 'frameNew' + str(f+1) + '.txt'
