@@ -1,6 +1,3 @@
-from OpenGL.GL import *
-
-
 class ObjLoader(object):
     def __init__(self, fileName):
         self.v = []

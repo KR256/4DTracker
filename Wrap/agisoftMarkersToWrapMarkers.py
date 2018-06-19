@@ -3,6 +3,7 @@ import glob
 import numpy as np
 import numpy.matlib
 import objloader
+import loadAgisoftOut3D
 
 def checkBarycentric(P, A, B, C):
     inTriangle = 0
@@ -27,63 +28,14 @@ def checkBarycentric(P, A, B, C):
     return(inTriangle,u,v)
 
 
-# def checkBarycentricV2(P, A, B, C):
-#
-#     inTriangle = 0
-#     u = B - A
-#     v = C - A
-#     w = P - A
-#
-#     vCrossW = np.cross(v[0], w[0])
-#     vCrossU = np.cross(v[0], u[0])
-#
-#     # print np.dot(vCrossW, vCrossU)
-#     if (np.dot(vCrossW, vCrossU) < 0):
-#
-#         return (inTriangle, 0, 0)
-#
-#     uCrossW = np.cross(u[0], w[0])
-#     uCrossV = np.cross(v[0], v[0])
-#
-#     # print np.dot(vCrossW, uCrossV)
-#     if (np.dot(uCrossW, uCrossV) < 0):
-#
-#         return (inTriangle, 0, 0)
-#
-#     denom = len(uCrossV)
-#
-#     r = len(vCrossW) / denom
-#     t = len(uCrossW) / denom
-#
-#     if (r >= 0) and (t >= 0) and (r + t < 1):
-#         inTriangle = 1
-#
-#     return (inTriangle, r, t)
 
 
 # AGISOFT MARKER TXT FILE TO 3D MARKER POINTS per frame
 AGISOFT_DIR = 'C:\\kyleBathStuff\\Agisoft\\outMarkersSparse300k'
-agisoftPointsFileNames = glob.glob(os.path.join(AGISOFT_DIR, '*.txt'))
-print agisoftPointsFileNames
-NUM_FRAMES = len(agisoftPointsFileNames)
-markersAtFrame = [[]] * NUM_FRAMES
-print markersAtFrame
+MARKERS_3D_FILE = 'C:/kyleBathStuff/PaddyTracking/out3D.txt'
 
-for f in range(NUM_FRAMES):
-    inFile = agisoftPointsFileNames[f]
-    print "Reading in %s\n" % inFile
-    with open(inFile, 'r') as myfile:
-        allMarkerXYZ = []
-        for i, line in enumerate(myfile.readlines()):
-            markerXYZ = line.split()
-            if (markerXYZ[0] == 'point'):
-                try:
-                    allMarkerXYZ.append([float(markerXYZ[9]), float(markerXYZ[10]), float(markerXYZ[11])])
-                except:
-                    print "Format of txt file inconsistent"
-
-    markersAtFrame[f] = allMarkerXYZ
-
+markersAtFrame = loadAgisoftOut3D.loadAgisoftOut3D(MARKERS_3D_FILE)
+NUM_FRAMES = len(markersAtFrame)
 NUM_MARKERS = len(markersAtFrame[0])
 
 # 3D POINTS to FACES for Wrap.
