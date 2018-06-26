@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="54aa04ee-6c97-4553-9fc4-67ba4d90ce4b" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py" beforeDir="false" afterPath="$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -16,8 +16,8 @@
       <file leaf-file-name="agisoftMarkersToWrapMarkers.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="114" selection-start-line="114" selection-end-line="114" />
+            <state relative-caret-position="357">
+              <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
               </folding>
@@ -75,11 +75,6 @@
             <path>
               <item name="GitRepo_4DTracker" type="b2602c69:ProjectViewProjectNode" />
               <item name="GitRepo_4DTracker" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GitRepo_4DTracker" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GitRepo_4DTracker" type="462c0819:PsiDirectoryNode" />
               <item name="Wrap" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -89,6 +84,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GitRepo_RigGA/RigGa" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
@@ -142,7 +138,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1096" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25" />
@@ -197,8 +193,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Wrap/agisoftMarkersToWrapMarkers.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="114" selection-start-line="114" selection-end-line="114" />
+        <state relative-caret-position="357">
+          <caret line="21" column="50" selection-start-line="21" selection-start-column="50" selection-end-line="21" selection-end-column="50" />
           <folding>
             <element signature="e#0#9#0" expanded="true" />
           </folding>
