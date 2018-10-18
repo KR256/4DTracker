@@ -1,6 +1,8 @@
 class ObjLoader(object):
+
     def __init__(self, fileName):
         self.v = []
+        self.vn = []
         self.f = []
         ##
         try:
@@ -15,24 +17,31 @@ class ObjLoader(object):
                     # print float(line[index2:index3])
                     # print float(line[:-1])
                     splitLine = line.split()
-                    vertex = (float(splitLine[1]), float(splitLine[2]), float(splitLine[3]))
-                    # vertex = (round(vertex[0], 2), round(vertex[1], 2), round(vertex[2], 2))
+                    vertex = (float(splitLine[1]), float(
+                        splitLine[2]), float(splitLine[3]))
+                    # vertex = (round(vertex[0], 2), round(vertex[1], 2),
+                    # round(vertex[2], 2))
                     self.v.append(vertex)
 
                 elif line[0] == "f":
                     string = line.replace("//", "/")
+                    # print(string)
                     ##
                     splitLineFace = line.split()
-                    face = (int(splitLineFace[1].split('//')[0]),int(splitLineFace[2].split('//')[0]),
-                            int(splitLineFace[3].split('//')[0]))
-                    # for item in range(string.count(" ")):
-                    #     if string.find(" ", i) == -1:
-                    #         face.append(string[i:-1])
-                    #         break
-                    #     face.append(string[i:string.find(" ", i)])
-                    #     i = string.find(" ", i) + 1
-                    ##
+                    try:
+                        face = (int(splitLineFace[1].split('/')[0]), int(splitLineFace[2].split('/')[0]),int(splitLineFace[3].split('/')[0]))
+                    except:
+                        face = (int(splitLineFace[1].split('/')[0]), int(splitLineFace[2].split('/')[0]),int(splitLineFace[3].split('/')[0]), int(splitLineFace[4].split('/')[0]))
+
                     self.f.append(face)
+
+                elif line[:3] == "vn ":
+                    splitLine = line.split()
+                    vertexNorm = (float(splitLine[1]), float(
+                        splitLine[2]), float(splitLine[3]))
+                    # vertex = (round(vertex[0], 2), round(vertex[1], 2),
+                    # round(vertex[2], 2))
+                    self.vn.append(vertexNorm)
 
             f.close()
         except IOError:

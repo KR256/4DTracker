@@ -105,14 +105,14 @@ def checkBarycentric3(P, v0, v1, v2):
     vp1 = P - v1
     C = np.cross(edge1, vp1)
     u = np.dot(N, C)
-    if ( u < 0 ):
+    if ( u < 0):
         return (False, 0, 0)
 
     edge2 = v0 - v2
     vp2 = P - v2
     C = np.cross(edge2, vp2)
     v = np.dot(N, C)
-    if ( v < 0 ):
+    if ( v < 0):
         return (False, 0, 0)
 
     u = u / denom
@@ -121,8 +121,36 @@ def checkBarycentric3(P, v0, v1, v2):
     if (not np.isfinite(u) or not np.isfinite(v)):
         return (False, 0, 0)
 
-
     return (True, u, v)
+
+
+def checkBarycentric4(orig, dir, v0, v1, v2):
+    v0v1 = v1 - v0
+    v0v2 = v2 - v0
+    pvec = np.cross(dir, v0v2)
+    det = np.dot(v0v1, pvec)
+
+    if np.abs(det) < 0.00000001:
+        return (False, 0, 0, 0)
+
+    invDet = 1/det
+
+    tvec = orig - v0
+    u = np.dot(tvec,pvec) * invDet
+    if (u < 0 or u > 1):
+        return (False, 0, 0, 0)
+
+    qvec = np.cross(tvec,v0v1)
+    v = np.dot(dir, qvec) * invDet
+    if (v < 0 or u + v > 1):
+        return (False, 0, 0, 0)
+
+    if (not np.isfinite(u) or not np.isfinite(v)):
+        return (False, 0, 0, 0)
+
+    t = np.dot(v0v2, qvec) * invDet
+
+    return (True,u, v, t)
 
 
 
@@ -130,74 +158,78 @@ def checkBarycentric3(P, v0, v1, v2):
 
 
 # AGISOFT MARKER TXT FILE TO 3D MARKER POINTS per frame
-AGISOFT_DIR = 'F:\CatherineShoot\catherineShort\AgisoftOutMarkers\dense_noBlink\\temporalMarkersHigh_noBlink.txt'
+MESH_TOREFINE_DIR = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\sequential\coarse_noMarkers_withEyes_niceQuads'
 #MARKERS_3D_FILE = 'C:/kyleBathStuff/PaddyTracking/out3D.txt'
 
-#markersAtFrame = loadAgisoftOut3D.loadAgisoftOut3DFromQPT(MARKERS_3D_FILE)
-markersAtFrame = loadAgisoftOut3D.loadAgisoftOut3DFromAgisoftMarkers(AGISOFT_DIR)
-NUM_FRAMES = len(markersAtFrame)
-NUM_MARKERS = len(markersAtFrame[0])
+AGISOFT_MESH_DIR = 'F:\CatherineShoot\catherineMeshes\high400k_165frames_Rescaled'
 
-# 3D POINTS to FACES for Wrap.
-#MESH_DIR = 'F:\CatherineShoot\catherineShort\Agisoft\\10frames_rescaledAndHigherPrecision'
-MESH_DIR = 'F:\CatherineShoot\catherineMeshes\high400k_165frames_Rescaled'
+OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\\refinement\dense_noBlink_refined'
 
-
-maskOrOriginal = 'original'
+#maskOrOriginal = 'mask'
 wholeHeadFaces = True
-#refineAlongNormals = True
+
+NEUTRAL_MASK = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\\catMask_withEyes_tris.obj'
+maskMesh = objloader.ObjLoader(NEUTRAL_MASK)
+mask_vertsArray = np.array(maskMesh.v)
+mask_normsArray = np.array(maskMesh.vn)
 
 #if maskOrOriginal == 'mask':
-maskToWholeHeadDictPath = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\maskDicts\.catMask_withEyes.json'
+maskToWholeHeadDictPath = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\maskDicts\\faces_catMask_withEyes.json'
 with open(maskToWholeHeadDictPath) as fileContents:
     maskToWholeHeadDict = json.load(fileContents)
 
+maskVertsToWholeHeadDictPath = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\maskDicts\\verts_catMask_withEyes.json'
+with open(maskVertsToWholeHeadDictPath) as fileContents2:
+    maskVertsToWholeHeadDict = json.load(fileContents2)
 
 
 
-agisoftMeshFileNames = glob.glob(os.path.join(MESH_DIR, '*.obj'))
+
+agisoftMeshFileNames = glob.glob(os.path.join(AGISOFT_MESH_DIR, '*.obj'))
 #NUM_FRAMES = 1
 START_FRAME = 64
 END_FRAME = 164
 NEUTRAL_FRAME = 64
 #allMarkerFaces = [[]] * (END_FRAME - START_FRAME)
-f = START_FRAME
-while f <= END_FRAME:
+#f = START_FRAME
 
-    NAUGHTY_MARKERS_PATH = 'F:\CatherineShoot\catherineShort\WrapMarkers\dense_noBlink\\naughtyMarkers\\naughtyMarkers.%i.txt' % (f + 1)
+for f in range(START_FRAME, END_FRAME+1):
 
-    if maskOrOriginal == 'mask':
-        meshNameStr = 'frameMesh.%d.obj'
-        meshName = os.path.join('F:\CatherineShoot\catherineShort\AgisoftOutMarkers\dense_noBlink\\', meshNameStr % (f + 1))
-        with open(NAUGHTY_MARKERS_PATH) as naughtyfile:
-            naughtyMarkers = np.array(naughtyfile.read().strip('[').strip(']').split(',')).astype(int)
-    else:
-        meshNameStr = 'frame.%i.obj'
-        meshName = os.path.join(MESH_DIR, meshNameStr % (f + 1))
-        naughtyMarkers = []
+    meshNameStr = 'frame.%i.obj'
 
 
-
-    #frameMarkers = markersAtFrame[f]
-    frameMarkers = markersAtFrame[f - NEUTRAL_FRAME]
-    #meshName = agisoftPointsFileNames[f]
-    #meshName = os.path.join(MESH_DIR, meshNameStr % (f+1))
+    meshName = os.path.join(AGISOFT_MESH_DIR, meshNameStr % (f+1))
     print("Reading in %s\n" % meshName)
     # frameMesh = pymesh.load_mesh(meshName)
     frameMesh = objloader.ObjLoader(meshName)
     vertsArray = np.array(frameMesh.v)
     facesArray = np.array(frameMesh.f)
-    normsArray = np.array(frameMesh.vn)
     # frameMesh3 = pywavefront.Wavefront(meshName)
-    markerFaces = [[]] * NUM_MARKERS
+
+    toRefineName = os.path.join(MESH_TOREFINE_DIR, meshNameStr % (f + 1))
+    print("Reading in %s\n" % toRefineName)
+    # frameMesh = pymesh.load_mesh(meshName)
+    toRefineMesh = objloader.ObjLoader(toRefineName)
+    toRefine_vertsArray = np.array(toRefineMesh.v)
+    toRefine_normsArray = np.array(toRefineMesh.vn)
+
+    frameMarkers = toRefine_vertsArray
+
+    NUM_MARKERS = len(mask_vertsArray)
+
+    markerFaces = [[]] * len(toRefine_vertsArray)
 
     for m in range(NUM_MARKERS):
-        marker = frameMarkers[m]
+        # if m == 58:
+        #     pass
+        toRefine_wholeHeadVtx = maskVertsToWholeHeadDict[str(m)]
+        marker = frameMarkers[toRefine_wholeHeadVtx]
+        marker_Normal = toRefine_normsArray[toRefine_wholeHeadVtx]
         #marker = frameMarkers[7463]
         diffVec = np.sum(np.abs(vertsArray - numpy.matlib.repmat(marker, vertsArray.shape[0], 1)), axis=1)
         markerVtx = np.argmin(diffVec)
         closestVrts = np.argsort(diffVec) #[:10]
-        bestTriangle3 = 0
+        bestTriangle4 = 0
         id = 0
         recVal = 2
         while (id < 3 and recVal < 4):
@@ -213,22 +245,21 @@ while f <= END_FRAME:
                 B = vertsArray[outVerts[0][1]]
                 C = vertsArray[outVerts[0][2]]
                 #(bestTriangle, u1, v1) = checkBarycentric(marker, A, B, C)
-                #(bestTriangle2, u2, v2) = checkBarycentric2(marker, A, B, C)
-                (bestTriangle3, u3, v3) = checkBarycentric3(marker, A, B, C)
+                (bestTriangle3, u3, v3) = checkBarycentric2(marker, A, B, C)
+                (bestTriangle4, u4, v4, t) = checkBarycentric4(marker, marker_Normal,  A, B, C)
                 #(bestTriangle, u, v) = checkBarycentricV2(marker, A, B, C)
-                if (bestTriangle3):
+                if (bestTriangle4):
                     # Wrap is annoying and takes 3rd Vertex as A
                     FaceId = FaceIds[fids]
-                    outVerts2 = facesArray[FaceId[0]] - [1,1,1]
-                    A2 = vertsArray[outVerts2[0]]
-                    B2 = vertsArray[outVerts2[1]]
-                    C2 = vertsArray[outVerts2[2]]
-                    (bT, u, v) = checkBarycentric3(marker, A2, B2, C2)
-                    print "Marker %i: [%i, %f, %f]" % (m, FaceId, u , v)
-                    if maskOrOriginal == 'mask' and wholeHeadFaces:
-                        FaceId = [int(maskToWholeHeadDict[str(FaceId[0])])]
+                    # outVerts2 = facesArray[FaceId[0]] - [1,1,1]
+                    # A2 = vertsArray[outVerts2[0]]
+                    # B2 = vertsArray[outVerts2[1]]
+                    # C2 = vertsArray[outVerts2[2]]
+                    # (bT, u, v) = checkBarycentric3(marker, A2, B2, C2)
+                    print "Marker %i: [%i, %f, %f]" % (m, FaceId, u3 , v3)
+                    print "Marker %i: [%i, %f, %f]" % (m, FaceId, 1 - (u4 + v4), u4)
                     break
-            if (bestTriangle3):
+            if (bestTriangle4):
                 # print "Best Triangle at %f %f %f" % (A2,B2,C2)
                 # print "recVal = %i" % recVal
                 break
@@ -236,18 +267,18 @@ while f <= END_FRAME:
             id = id + 1
 
             # If can't find triangle choose second nearest triangle
-            if (not bestTriangle3 and id == 3):
-                print 'Couldn\'t find barycentric for Frame: %d, Marker %d on First Attempt\n' % (f, m)
+            if (not bestTriangle4 and id == 3):
+                #print 'Couldn\'t find barycentric for Frame: %d, Marker %d on First Attempt\n' % (f, m)
                 #idx = np.argpartition(diffVec, recVal)
                 #markerVtx = idx[recVal-1]
 
                 markerVtx = closestVrts[recVal-1]
                 id = 0
                 recVal = recVal + 1
-            #
-                # if(recVal > 5):
-                #     break
-            #         print 'Couldn\'t find barycentric for Frame: %d, Marker %d at all\n' % (f, m)
+
+                if(recVal > 3):
+                    print 'Couldn\'t find barycentric for Frame: %d, Marker %d at all\n' % (f, m)
+                    break
             #         # try:
             #         #     FaceId = np.argwhere(facesArray[:, 2] == (idx[0] + 1))[0]
             #         # except:
@@ -259,55 +290,27 @@ while f <= END_FRAME:
             #         u,v = 0.00,0.00
             #         break
 
-        if maskOrOriginal == 'mask' and (m in naughtyMarkers):
-            markerFaces[m] = None
-        elif(bestTriangle3):
-            markerFaces[m] = [FaceId[0], float(u), float(v)]
-        elif(not bestTriangle3 and maskOrOriginal == 'original'):
-            naughtyMarkers.append(m)
-            markerFaces[m] = None
-        else:
-            markerFaces[m] = None
+        #Update Vertex
+        newVertexPosition = marker + t * (marker_Normal)
+        markerFaces[toRefine_wholeHeadVtx] = newVertexPosition
 
-    #allMarkerFaces[abs(f - END_FRAME) - 1] = markerFaces
 
-    if maskOrOriginal == 'original':
-        with open(NAUGHTY_MARKERS_PATH, 'w') as naughtyfile:
-            naughtyfile.write(str(naughtyMarkers))
+    #Write new OBJ file
 
-    OUT_WRAP_PATH = 'F:\CatherineShoot\catherineShort\WrapMarkers\dense_noBlink\\'
-    if maskOrOriginal == 'mask':
-        OUT_WRAP_PATH = 'F:\CatherineShoot\catherineShort\WrapMarkers\dense_noBlink\\NeutralMarkers\\'
-    # print allMarkerFaces[0]
-    outfileName = OUT_WRAP_PATH + 'frameNewHigh' + str(f + 1) + '.txt'
-    with open(outfileName, 'w') as outfile:
-        # frameArray = allMarkerFaces[abs(f - END_FRAME) - 1]
-        #frameArray = allMarkerFaces[f - START_FRAME]
+    with open(toRefineName) as toRefineContents:
+        with open(OUT_PATH + '\\frame.%d.obj' % (f+1), 'w') as frameWrite:
 
-        arrayOut = [x for x in markerFaces if x is not None]
-        # for marker in frameArray:
-        #     if not marker:
-        outfile.write(str(arrayOut))
+            vId = 0
+            for l, line in enumerate(toRefineContents):
 
-    if maskOrOriginal == 'original':
-        maskOrOriginal = 'mask'
-    else:
-        maskOrOriginal = 'original'
-        f = f + 1
+                if (line[:2] == "v ") and markerFaces[vId] != []:
+                    refinedCoord = "v %.9f %.9f %.9f\n" % ( markerFaces[vId][0] , markerFaces[vId][1], markerFaces[vId][2])
+                    frameWrite.write(refinedCoord)
+                    vId = vId + 1
 
-# Write to txt file compatable with Wrap.
-# OUT_WRAP_PATH = 'F:\CatherineShoot\catherineShort\WrapMarkers\dense_noBlank\\'
-# if maskOrOriginal == 'mask':
-#     OUT_WRAP_PATH = 'F:\CatherineShoot\catherineShort\WrapMarkers\dense_noBlank\\NeutralMarkers\\'
-# # print allMarkerFaces[0]
-# for f in range(START_FRAME,END_FRAME):
-#     outfileName = OUT_WRAP_PATH + 'frameNewHigh' + str(f+1) + '.txt'
-#     with open(outfileName, 'w') as outfile:
-#             #frameArray = allMarkerFaces[abs(f - END_FRAME) - 1]
-#             frameArray = allMarkerFaces[f - START_FRAME]
-#             arrayOut = [x for x in frameArray if x is not None]
-#             # for marker in frameArray:
-#             #     if not marker:
-#             outfile.write(str(arrayOut))
+                else:
+                    frameWrite.write(line)
 
-print naughtyMarkers
+
+
+
