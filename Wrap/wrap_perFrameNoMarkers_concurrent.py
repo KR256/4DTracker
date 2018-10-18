@@ -96,12 +96,13 @@ for i in range(START_FRAME, END_FRAME+1):
 
     else:
 
-        pool = Pool(10)  # two concurrent commands at a time
+        pool = Pool(NUM_THREADS)  # two concurrent commands at a time
         for j, returncode in enumerate(pool.imap(partial(call, shell=True), commands)):
             if returncode != 0:
                 print("%d command failed: %d" % (i, returncode))
 
         threadId = 1
+        i = i - 1
         batchStart = batchStart + NUM_THREADS
         print "Starting Batch: %i to %i" % (batchStart , np.min([END_FRAME, batchStart + NUM_THREADS]) )
 
