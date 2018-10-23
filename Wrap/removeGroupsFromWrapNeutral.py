@@ -1,6 +1,6 @@
 
-IN_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\sequential\coarse_noBlink\\frame.%d.obj'
-OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\coarse_noBlink_niceQuads\\frame.%d.obj'
+IN_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\super_noMarkers\\frame.%d.obj'
+OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\super_noMarkers_niceQuads\\frame.%d.obj'
 
 START_FRAME = 65
 END_FRAME = 165

@@ -7,26 +7,26 @@ from functools import partial
 from multiprocessing.dummy import Pool
 from subprocess import call
 
-START_FRAME = 75
-END_FRAME = 165
+START_FRAME = 107
+END_FRAME = 114
 
-NUM_THREADS = 10
+NUM_THREADS = 4
 
 INPUT_WRAP_FILE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\concurrent\seqNoMarkers.wrap'
 OUTPUT_WRAP_FILE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\concurrent\seqNoMarkersTemp%d.wrap'
 
 NEUTRAL = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/catherineNeutralAgisoftCoordRescaledHighWrap.obj'
 MESH_TARGET = 'F:\CatherineShoot\catherineMeshes\high400k_165frames_Rescaled\\frame.%i.obj'
-IN_MESH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\sequential\coarse_noMarkers_withEyes/frame.%d.obj'
-OUT_MESH = 'F:\CatherineShoot/catherineMeshes/wrapMultiFrame/perFrame/concurrent/frame.%d.obj'
+IN_MESH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\concurrent2/frame.%d.obj'
+OUT_MESH = 'F:\CatherineShoot/catherineMeshes/wrapMultiFrame/perFrame/super_noMarkers/frame.%d.obj'
 
-POLYGON_FILE = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/catMask_high.txt'
+POLYGON_FILE = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/catMask_super_2.txt'
 
 
 # Create Wrap parameter settings
 SUBDIVISIONS = 1 #default 3
-ICP_ITERATIONS = 3 #default 5
-OPT_ITERATIONS = 10 #default 20
+ICP_ITERATIONS = 2 #default 5
+OPT_ITERATIONS = 5 #default 20
 SAMP_INIT = 5 #default 5
 SAMP_FINAL = 0.2 #default 0.2
 SMOOTH_INIT = 1 #default 1
@@ -44,7 +44,8 @@ threadId = 1
 batchStart = START_FRAME
 
 # Creates meshes from frame2:NUM_FRAMES. Assumes first frame is manual.
-for i in range(START_FRAME, END_FRAME+1):
+i = START_FRAME
+while i <= END_FRAME:
     # Load example JSON wrap file saved from first frame
 
 
@@ -79,7 +80,7 @@ for i in range(START_FRAME, END_FRAME+1):
     d['nodes']['Wrapping01']['params']['minDp']['value'] = DP_FINAL
 
 
-    left = np.min([END_FRAME - batchStart, NUM_THREADS])
+    left = np.min([END_FRAME - batchStart + 1, NUM_THREADS])
     if threadId <= left:
     # Save JSON file
         outWrapFile = OUTPUT_WRAP_FILE % threadId
@@ -94,7 +95,8 @@ for i in range(START_FRAME, END_FRAME+1):
 
         threadId = threadId + 1
 
-    else:
+
+    if threadId == (NUM_THREADS + 1):
 
         pool = Pool(NUM_THREADS)  # two concurrent commands at a time
         for j, returncode in enumerate(pool.imap(partial(call, shell=True), commands)):
@@ -102,9 +104,12 @@ for i in range(START_FRAME, END_FRAME+1):
                 print("%d command failed: %d" % (i, returncode))
 
         threadId = 1
-        i = i - 1
+
         batchStart = batchStart + NUM_THREADS
+        #i = batchStart - 1
         print "Starting Batch: %i to %i" % (batchStart , np.min([END_FRAME, batchStart + NUM_THREADS]) )
+
+    i = i + 1
 
     # Run Wrap node script for frame
     # print("Reconstructing Frame %d: %s" % (i, (MESH_TARGET % i)))

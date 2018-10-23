@@ -158,27 +158,27 @@ def checkBarycentric4(orig, dir, v0, v1, v2):
 
 
 # AGISOFT MARKER TXT FILE TO 3D MARKER POINTS per frame
-MESH_TOREFINE_DIR = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\sequential\coarse_noMarkers_withEyes_niceQuads'
+MESH_TOREFINE_DIR = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\concurrent_niceQuads'
 #MARKERS_3D_FILE = 'C:/kyleBathStuff/PaddyTracking/out3D.txt'
 
 AGISOFT_MESH_DIR = 'F:\CatherineShoot\catherineMeshes\high400k_165frames_Rescaled'
 
-OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\\refinement\dense_noBlink_refined'
+OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\\refinement\super_refined'
 
 #maskOrOriginal = 'mask'
 wholeHeadFaces = True
 
-NEUTRAL_MASK = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\\catMask_withEyes_tris.obj'
+NEUTRAL_MASK = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/mask_super_notwrapped_tris.obj'
 maskMesh = objloader.ObjLoader(NEUTRAL_MASK)
 mask_vertsArray = np.array(maskMesh.v)
 mask_normsArray = np.array(maskMesh.vn)
 
 #if maskOrOriginal == 'mask':
-maskToWholeHeadDictPath = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\maskDicts\\faces_catMask_withEyes.json'
+maskToWholeHeadDictPath = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\maskDicts\\faces_catMask_super.json'
 with open(maskToWholeHeadDictPath) as fileContents:
     maskToWholeHeadDict = json.load(fileContents)
 
-maskVertsToWholeHeadDictPath = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\maskDicts\\verts_catMask_withEyes.json'
+maskVertsToWholeHeadDictPath = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\maskDicts\\verts_catMask_super.json'
 with open(maskVertsToWholeHeadDictPath) as fileContents2:
     maskVertsToWholeHeadDict = json.load(fileContents2)
 
@@ -188,7 +188,7 @@ with open(maskVertsToWholeHeadDictPath) as fileContents2:
 agisoftMeshFileNames = glob.glob(os.path.join(AGISOFT_MESH_DIR, '*.obj'))
 #NUM_FRAMES = 1
 START_FRAME = 64
-END_FRAME = 164
+END_FRAME = 64
 NEUTRAL_FRAME = 64
 #allMarkerFaces = [[]] * (END_FRAME - START_FRAME)
 #f = START_FRAME
