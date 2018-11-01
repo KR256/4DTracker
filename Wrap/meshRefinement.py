@@ -158,7 +158,8 @@ def checkBarycentric4(orig, dir, v0, v1, v2):
 
 
 # AGISOFT MARKER TXT FILE TO 3D MARKER POINTS per frame
-MESH_TOREFINE_DIR = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\concurrent_niceQuads'
+#MESH_TOREFINE_DIR = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\concurrent_niceQuads'
+MESH_TOREFINE_DIR = 'F:\CatherineShoot\catherineMeshes\wrapNeutral\catherine_super_notwrapped_tris.obj'
 #MARKERS_3D_FILE = 'C:/kyleBathStuff/PaddyTracking/out3D.txt'
 
 AGISOFT_MESH_DIR = 'F:\CatherineShoot\catherineMeshes\high400k_165frames_Rescaled'
@@ -206,7 +207,8 @@ for f in range(START_FRAME, END_FRAME+1):
     facesArray = np.array(frameMesh.f)
     # frameMesh3 = pywavefront.Wavefront(meshName)
 
-    toRefineName = os.path.join(MESH_TOREFINE_DIR, meshNameStr % (f + 1))
+    #toRefineName = os.path.join(MESH_TOREFINE_DIR, meshNameStr % (f + 1))
+    toRefineName = MESH_TOREFINE_DIR
     print("Reading in %s\n" % toRefineName)
     # frameMesh = pymesh.load_mesh(meshName)
     toRefineMesh = objloader.ObjLoader(toRefineName)

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document version="1.4.0">
+  <chunk label="Chunk 1" enabled="1">
+    <sensors next_id="11">
+      <sensor id="1" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="100.8281336806"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16390.5</f>
+          <cx>62.54</cx>
+          <cy>-24.5899999999999</cy>
+          <k1>1.17615</k1>
+          <k2>2.73145</k2>
+        </calibration>
+      </sensor>
+
+      <sensor id="2" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="99.972443287"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16251.4</f>
+          <cx>9.83999999999992</cx>
+          <cy>-96.723</cy>
+          <k1>1.22086</k1>
+          <k2>-3.64312</k2>
+        </calibration>
+      </sensor>
+      
+      <sensor id="3" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="99.5885821759"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16189</f>
+          <cx>29.5</cx>
+          <cy>-59.7</cy>
+          <k1>1.01664</k1>
+          <k2>13.7533</k2>
+        </calibration>
+      </sensor>
+      <sensor id="4" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="99.1881116898"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16123.9</f>
+          <cx>29.03</cx>
+          <cy>-77.46</cy>
+          <k1>1.20912</k1>
+          <k2>-6.165</k2>
+        </calibration>
+      </sensor>
+      <sensor id="5" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="100.1932864583"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16287.3</f>
+          <cx>30.26</cx>
+          <cy>-52.72</cy>
+          <k1>1.24296</k1>
+          <k2>-3.94927</k2>
+        </calibration>
+      </sensor>
+      <sensor id="6" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="98.942662037"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16084</f>
+          <cx>-6.26999999999998</cx>
+          <cy>-12.5699999999999</cy>
+          <k1>1.14778</k1>
+          <k2>6.05732</k2>
+        </calibration>
+      </sensor>
+
+      <sensor id="7" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="99.9644461806"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16250.1</f>
+          <cx>31.5799999999999</cx>
+          <cy>-86.228</cy>
+          <k1>1.02778</k1>
+          <k2>16.0912</k2>
+        </calibration>
+      </sensor>
+
+      
+
+      <sensor id="8" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="99.5768940972"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16187.1</f>
+          <cx>51.29</cx>
+          <cy>-22.28</cy>
+          <k1>1.23646</k1>
+          <k2>-3.18072</k2>
+        </calibration>
+      </sensor>
+      
+      <sensor id="9" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="99.406494213"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16159.4</f>
+          <cx>26.8900000000001</cx>
+          <cy>-73.87</cy>
+          <k1>1.03996</k1>
+          <k2>11.2565</k2>
+        </calibration>
+      </sensor>
+
+      <sensor id="10" label="unknown" type="frame">
+        <resolution width="3840" height="2160"/>
+        <property name="pixel_width" value="0.0061574074"/>
+        <property name="pixel_height" value="0.0061458333"/>
+        <property name="focal_length" value="98.6799878472"/>
+        <property name="fixed" value="1"/>
+        <property name="layer_index" value="0"/>
+        <calibration type="frame" class="initial">
+          <resolution width="3840" height="2160"/>
+          <f>16041.3</f>
+          <cx>7.32999999999993</cx>
+          <cy>-39.55</cy>
+          <k1>1.33415</k1>
+          <k2>-11.4499</k2>
+        </calibration>
+      </sensor>
+      
+      
+      
+      
+    </sensors>
+    <cameras next_id="10" next_group_id="0">
+    <camera id="0" sensor_id="1" label="cam1_000001" enabled="1">
+        <transform>9.9369566500307893e-001 -5.3066798101284764e-003 -1.1198555488758499e-001 3.4379462552000112e-001 5.7783619485927168e-002 -8.3173835860159995e-001 5.5215247545385659e-001 -2.2245858533995659e+000 -9.6072778002892767e-002 -5.5514245197076117e-001 -8.2618816219230462e-001 -4.1916529214344433e-001 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+
+      <camera id="1" sensor_id="2" label="cam2_000001" enabled="1">
+        <transform>9.9491725598859193e-001 1.0109770387050264e-002 -1.0018705644368806e-001 2.5120368124070236e-001 6.1880953938552620e-003 -9.9920525322288889e-001 -3.9377270184448497e-002 -7.1648379265542399e-003 -1.0050552826350481e-001 3.8557158537729806e-002 -9.9418910892946832e-001 2.9880112574310932e-002 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+    
+      <camera id="2" sensor_id="3" label="cam3_000001" enabled="1">
+        <transform>9.9244782637868378e-001 -2.3267982699303746e-003 -1.2264541543016151e-001 3.3237982351186918e-001 9.9061919064603821e-002 -5.7447053733360498e-001 8.1250866944721090e-001 -3.2134919222181182e+000 -7.2346721470041300e-002 -8.1852195312370835e-001 -5.6990153899343532e-001 -1.3580449688406413e+000 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+      <camera id="3" sensor_id="4" label="cam4_000001" enabled="1">
+        <transform>9.7824913557363780e-001 -4.0120617584073898e-003 2.0739462893208560e-001 -9.0534918698595646e-001 -1.7253963461478483e-001 -5.7073481777010471e-001 8.0280249269164705e-001 -3.1746722607701385e+000 1.1514644256957006e-001 -8.2112463800897628e-001 -5.5901308179523013e-001 -1.4026300034824779e+000 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+      <camera id="4" sensor_id="5" label="cam5_000001" enabled="1">
+        <transform>9.9538206072990554e-001 -3.0028789940152140e-002 -9.1174694690011673e-002 2.3425294874749547e-001 8.1576158589096476e-002 -2.3600592947920282e-001 9.6832150218845403e-001 -3.8580547212720311e+000 -5.0595291549048391e-002 -9.7128753365076592e-001 -2.3246643509908915e-001 -2.6112721762850319e+000 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+      <camera id="5" sensor_id="6" label="cam6_000001" enabled="1">
+        <transform>9.7435042743643274e-001 -1.4518643801240030e-002 2.2456725838067415e-001 -9.9038356357163104e-001 -2.2081268847749597e-001 -2.5410994517898466e-001 9.4163150561590359e-001 -3.8710634610217061e+000 4.3393561294045258e-002 -9.6706636005152513e-001 -2.5079803447179128e-001 -2.5181866422021573e+000 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+      <camera id="6" sensor_id="7" label="cam7_000001" enabled="1">
+        <transform>9.8153964997115550e-001 6.6267565067490266e-003 1.9114392910239303e-001 -8.7691901983816589e-001 1.3548068562013280e-002 -9.9929807156524753e-001 -3.4925835769760785e-002 -3.9598175265420643e-003 1.9077831473398482e-001 3.6870723673092909e-002 -9.8094045913250161e-001 1.3857862981516209e-001 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+
+      
+      
+
+      <camera id="7" sensor_id="8" label="cam8_000001" enabled="1">
+        <transform>9.9506059570972627e-001 6.5659466197974335e-003 -9.9052002558205968e-002 2.8669576255440032e-001 3.4871950551686126e-002 -9.5733816285964346e-001 2.8685813392205461e-001 -1.2347410077339567e+000 -9.2942766961854703e-002 -2.8889536215991529e-001 -9.5283844999662226e-001 9.9470142700815042e-002 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+      
+      
+      <camera id="8" sensor_id="9" label="cam9_000001" enabled="1">
+        <transform>9.7722360074546299e-001 -1.9603508921163644e-002 2.1130484278418671e-001 -8.4208903192950846e-001 -1.3275493682385092e-001 -8.3329971488638832e-001 5.3664486573446257e-001 -2.2271607271812806e+000 1.6556014283325371e-001 -5.5247378906898559e-001 -8.1692261046979897e-001 -3.3119548890051365e-001 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+      
+
+      
+      <camera id="9" sensor_id="10" label="cam10_000001" enabled="1">
+        <transform>9.8582790658203534e-001 2.0765921333462667e-002 1.6646956212849795e-001 -7.7838400030840393e-001 -2.7833491726768314e-002 -9.5831000456872595e-001 2.8437164394816905e-001 -1.1941491463489351e+000 1.6543468603160982e-001 -2.8497493162497778e-001 -9.4415075756097444e-001 -7.4421510756291775e-003 0.0000000000000000e+000 0.0000000000000000e+000 0.0000000000000000e+000 1.0000000000000000e+000</transform>
+      </camera>
+      
+      
+      
+      
+    </cameras>
+    <reference>LOCAL_CS["Local Coordinates (m)",LOCAL_DATUM["Local Datum",0],UNIT["metre",1,AUTHORITY["EPSG","9001"]]]</reference>
+    <region>
+      <center>-4.4970884495494912e-002 -1.8694868863432412e-001 -3.4315921561556113e+000</center>
+      <size>7.7708678642908735e-001 6.0173311630884818e-001 2.4449453751246164e-001</size>
+      <R>-9.8955834244753826e-001 -8.0149680712332833e-002 1.1979280268109543e-001 1.7230443114729679e-004 -8.3178475703332055e-001 -5.5509826902828940e-001 1.4413277629902146e-001 -5.4928148216441008e-001 8.2311335558816257e-001</R>
+    </region>
+    <settings>
+      <property name="accuracy_tiepoints" value="1"/>
+      <property name="accuracy_cameras" value="10"/>
+      <property name="accuracy_cameras_ypr" value="10"/>
+      <property name="accuracy_markers" value="0.005"/>
+      <property name="accuracy_scalebars" value="0.001"/>
+      <property name="accuracy_projections" value="0.1"/>
+    </settings>
+    <meta>
+      <property name="align/adaptive_fitting" value="true"/>
+      <property name="align/duration" value="1.829"/>
+    </meta>
+  </chunk>
+</document>

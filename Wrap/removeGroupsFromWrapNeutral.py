@@ -1,11 +1,12 @@
 
-IN_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\super_noMarkers\\frame.%d.obj'
-OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\perFrame\super_noMarkers_niceQuads\\frame.%d.obj'
+IN_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_noGroupsNoBrows/frame.%d.obj'
+OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_noGroupsNoBrows_niceQuads/frame.%0d.obj'
 
 START_FRAME = 65
-END_FRAME = 165
+END_FRAME = 136
 
-linesToRemove = ["g Face", "g HeadBack", "g Nostrils", "g Eyes", "g EarsBack"]
+linesToRemove = ["g Face", "g HeadBack", "g Nostrils", "g Eyes", "g EarsBack", "g EyelidsUpper", "g EyelidsLower",
+                 "g NasolabialArea", "g Jaw", "g MouthSocketUpper","g MouthSocketLower"]
 
 for f in range(START_FRAME, END_FRAME + 1):
 
