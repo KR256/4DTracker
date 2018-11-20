@@ -2,24 +2,24 @@ import os
 import sys
 import json
 
-START_FRAME = 67
-END_FRAME = 136
-NEUTRAL_FRAME = 65
+START_FRAME = 136
+END_FRAME = 65
+NEUTRAL_FRAME = 136
 
 INPUT_WRAP_FILE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\opticalWrapping_withMarkers.wrap'
 OUTPUT_WRAP_FILE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\opticalWrapping_withMarkers_Temp.wrap'
-NEUTRAL = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/blendshapeNeutral/wrapped_80K_noEyebrows.obj'
-NEUTRAL_TEXTURE = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/blendshapeNeutral/wrapped_80K_noEyeBrows.jpg'
-MESH_TARGET = 'F:\CatherineShoot\catherineShort\Agisoft\\100_withTexture_smoothed\\frame.%i.obj'
-TARGET_TEXTURE = 'F:\CatherineShoot\catherineShort\Agisoft\\100_withTexture_smoothed\\frame.%i.jpg'
-IN_MESH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan/frame.%d.obj'
-IN_MESH_TEXTURE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan/frame.%d.jpg'
-OUT_MESH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan/frame.%d.obj'
-OUT_MESH_TEXTURE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan/frame.%d.jpg'
+NEUTRAL = 'F:/CatherineShoot/catherineMeshes/wrapExtreme/neutral_5K.obj'
+NEUTRAL_TEXTURE = 'F:/CatherineShoot/catherineMeshes/wrapExtreme/neutral_5K.png'
+MESH_TARGET = 'F:\CatherineShoot\catherineShort\Agisoft\\180_frames_withTexture\\frame.%i.obj'
+TARGET_TEXTURE = 'F:\CatherineShoot\catherineShort\Agisoft\\180_frames_withTexture\\frame.%i.png'
+IN_MESH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping/coarse_backwards_withMarkers/frame.%d.obj'
+IN_MESH_TEXTURE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping/coarse_backwards_withMarkers/frame.%d.jpg'
+OUT_MESH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping/coarse_backwards_withMarkers/frame.%d.obj'
+OUT_MESH_TEXTURE = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping/coarse_backwards_withMarkers/frame.%d.png'
 
-POLYGON_FILE = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/blendshapeNeutral/mask_80k_eyebrows.txt'
+POLYGON_FILE = 'F:/CatherineShoot/catherineMeshes/wrapExtreme/mask_5K.txt'
 
-TEMPLATE_MARKERS = 'F:/CatherineShoot/catherineMeshes/wrapNeutral/baseMesh/eyesNeutral_markers.txt'
+TEMPLATE_MARKERS = 'F:/CatherineShoot/catherineMeshes/wrapExtreme/eyesExtreme_markers.txt'
 AGISOFT_MESH_MARKERS = 'F:\CatherineShoot\catherineShort_Calib\outWrap\\frameNewHigh%d.txt'
 
 
@@ -39,7 +39,7 @@ AGISOFT_MESH_MARKERS = 'F:\CatherineShoot\catherineShort_Calib\outWrap\\frameNew
 # DP_FINAL = 0.002 #default 0.002
 
 # Creates meshes from frame2:NUM_FRAMES. Assumes first frame is manual.
-for i in range(START_FRAME, END_FRAME+1):
+for i in range(START_FRAME, END_FRAME-1,-1):
     # Load example JSON wrap file saved from first frame
     with open(INPUT_WRAP_FILE) as json_data:
         d = json.load(json_data)
@@ -53,8 +53,8 @@ for i in range(START_FRAME, END_FRAME+1):
         d['nodes']['SaveImage01']['params']['fileName']['value'] = unicode(OUT_MESH_TEXTURE % i)
         d['nodes']['SaveGeom01']['params']['fileName']['value'] = unicode(OUT_MESH % i)
     else:
-        d['nodes']['LoadGeom01']['params']['fileNames']['value'] = [unicode(IN_MESH % (i-1))]
-        d['nodes']['LoadImage01']['params']['fileNames']['value'] = [unicode(OUT_MESH_TEXTURE % (i - 1))]
+        d['nodes']['LoadGeom01']['params']['fileNames']['value'] = [unicode(IN_MESH % (i+1))]
+        d['nodes']['LoadImage01']['params']['fileNames']['value'] = [unicode(OUT_MESH_TEXTURE % (i + 1))]
         d['nodes']['LoadGeom02']['params']['fileNames']['value'] = [unicode(MESH_TARGET % i)]
         d['nodes']['LoadImage02']['params']['fileNames']['value'] = [unicode(TARGET_TEXTURE % i)]
         d['nodes']['SaveGeom01']['params']['fileName']['value'] = unicode(OUT_MESH % i)

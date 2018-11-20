@@ -1,6 +1,6 @@
 
-IN_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_noGroupsNoBrows/frame.%d.obj'
-OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_noGroupsNoBrows_niceQuads/frame.%0d.obj'
+IN_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan/frame.%d.obj'
+OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan_niceQuads/frame.%0d.obj'
 
 START_FRAME = 65
 END_FRAME = 136

@@ -2,7 +2,7 @@ import os
 import sys
 import json
 
-START_FRAME = 126
+START_FRAME = 65
 END_FRAME = 136
 NEUTRAL_FRAME = 65
 
