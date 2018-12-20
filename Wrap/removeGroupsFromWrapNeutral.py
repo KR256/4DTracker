@@ -1,9 +1,9 @@
 
-IN_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan/frame.%d.obj'
-OUT_PATH = 'F:\CatherineShoot\catherineMeshes\wrapMultiFrame\opticalWrapping\super_smoothScan_niceQuads/frame.%0d.obj'
+IN_PATH = 'G:\\results\perFrame\\blendWrapped_5k_iFrames\Frame.%06i.obj'
+OUT_PATH = 'G:\\results\perFrame\\blendWrapped_5k_iFrames_niceQuads\Frame.%06i.obj'
 
-START_FRAME = 65
-END_FRAME = 136
+START_FRAME = 30
+END_FRAME = 30
 
 linesToRemove = ["g Face", "g HeadBack", "g Nostrils", "g Eyes", "g EarsBack", "g EyelidsUpper", "g EyelidsLower",
                  "g NasolabialArea", "g Jaw", "g MouthSocketUpper","g MouthSocketLower"]
