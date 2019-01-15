@@ -1,9 +1,9 @@
 
-IN_PATH = 'G:\\results\perFrame\\blendWrapped_5k_iFrames\Frame.%06i.obj'
-OUT_PATH = 'G:\\results\perFrame\\blendWrapped_5k_iFrames_niceQuads\Frame.%06i.obj'
+IN_PATH = 'G:\\results\\fullSequence\smile_0088\\opti_interpolation\\frame_averaged.%04i.obj'
+OUT_PATH = 'G:\\results\\fullSequence\smile_0088\\opti_averaged_niceQuads\\frame.%04i.obj'
 
-START_FRAME = 30
-END_FRAME = 30
+START_FRAME = 1
+END_FRAME = 88
 
 linesToRemove = ["g Face", "g HeadBack", "g Nostrils", "g Eyes", "g EarsBack", "g EyelidsUpper", "g EyelidsLower",
                  "g NasolabialArea", "g Jaw", "g MouthSocketUpper","g MouthSocketLower"]
