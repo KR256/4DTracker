@@ -48,3 +48,35 @@ def loadAgisoftOut3DFromAgisoftMarkers(AgisoftMarkersPath):
 
     f.close()
     return markersPerFrame
+
+def loadAgisoftOut3DFromAgisoftMarkers_withKnownFrames(AgisoftMarkersPath):
+
+    f = open(AgisoftMarkersPath)
+    data = f.readlines()
+
+    tempList = []
+    markersPerFrame = []
+    firstMarker = int(data[0].strip().split()[1])
+
+    for i, line in enumerate(data):
+        splitLine = line.strip().split()
+        if not splitLine:
+            continue
+        try:
+            markerId = int(splitLine[1])
+        except:
+            pass
+
+        if markerId == firstMarker and i != 0:
+            markersPerFrame.append(tempList)
+            tempList = [(float(splitLine[2]), float(splitLine[3]), float(splitLine[4]))]
+        else:
+            try:
+                tempList.append((float(splitLine[2]), float(splitLine[3]), float(splitLine[4])))
+            except:
+                pass
+
+    markersPerFrame.append(tempList)
+
+    f.close()
+    return markersPerFrame

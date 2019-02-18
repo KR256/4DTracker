@@ -1,12 +1,12 @@
 
-IN_PATH = 'G:\\results\\fullSequence\smile_0088\\opti_interpolation\\frame_averaged.%04i.obj'
-OUT_PATH = 'G:\\results\\fullSequence\smile_0088\\opti_averaged_niceQuads\\frame.%04i.obj'
+IN_PATH = 'G:\\results\\fullSequence\\fullWithGroups\\optiWrapped_20k_groups.%04i.obj'
+OUT_PATH = 'G:\\results\\fullSequence\\full_niceQuads\\optiWrapped_20k.%04i.obj'
 
-START_FRAME = 1
-END_FRAME = 88
+START_FRAME = 626
+END_FRAME = 900
 
 linesToRemove = ["g Face", "g HeadBack", "g Nostrils", "g Eyes", "g EarsBack", "g EyelidsUpper", "g EyelidsLower",
-                 "g NasolabialArea", "g Jaw", "g MouthSocketUpper","g MouthSocketLower"]
+                 "g NasolabialArea", "g Jaw", "g MouthSocketUpper","g MouthSocketLower","g MouthSocket"]
 
 for f in range(START_FRAME, END_FRAME + 1):
 

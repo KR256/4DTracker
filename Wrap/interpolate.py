@@ -3,20 +3,26 @@ import sys
 import json
 from shutil import copyfile
 
-START_FRAME = 5
-END_FRAME = 150
+START_FRAME = 1
+END_FRAME = 120
 NEUTRAL_FRAME = 1
 FRAME_STEP = 5
 
 INPUT_WRAP_FILE = 'G:\\results\perFrame\\interpolate_5k.wrap'
 OUTPUT_WRAP_FILE = 'G:\\results\perFrame\\interpolate_5k_Temp.wrap'
-NEUTRAL = 'G:/results/wrapTests/wrapped_5K_manual.obj'
-# NEUTRAL_TEXTURE = 'G:\\results\wrapTests\optiWrapped_80K.jpg'
-MESH_TARGET = 'G:/results/perFrame/blendWrapped_5k/Frame.%06i.obj'
-# TARGET_TEXTURE = 'G:\\20181113-CubicMotion-Meshes-Textures-240frames\\textures-png-240frames\\Frame%06i_u1_v1.png'
-IN_MESH = 'G:/results/perFrame/blendWrapped_5k/Frame.%06i.obj'
-# IN_MESH_TEXTURE = 'G:\\results\meshPropagation\opticalFlow_super\Frame.%06i.jpg'
-OUT_MESH = 'G:/results/perFrame/blendWrapped_5k/Frame.%06i.obj'
+
+NEUTRAL = 'G:/results/markerTracking/cache/frame_4k_groups.0001.obj'
+MESH_TARGET = 'G:\\results\markerTracking\seqLips_4k/frame.%04i.obj'
+IN_MESH = 'G:\\results\markerTracking\seqLips_4k/frame.%04i.obj'
+OUT_MESH = 'G:\\results\markerTracking\seqLips_4k/frame.%04i.obj'
+
+# NEUTRAL = 'G:/results/wrapTests/wrapped_5K_manual.obj'
+# # NEUTRAL_TEXTURE = 'G:\\results\wrapTests\optiWrapped_80K.jpg'
+# MESH_TARGET = 'G:/results/perFrame/blendWrapped_5k/Frame.%06i.obj'
+# # TARGET_TEXTURE = 'G:\\20181113-CubicMotion-Meshes-Textures-240frames\\textures-png-240frames\\Frame%06i_u1_v1.png'
+# IN_MESH = 'G:/results/perFrame/blendWrapped_5k/Frame.%06i.obj'
+# # IN_MESH_TEXTURE = 'G:\\results\meshPropagation\opticalFlow_super\Frame.%06i.jpg'
+# OUT_MESH = 'G:/results/perFrame/blendWrapped_5k/Frame.%06i.obj'
 # OUT_MESH_TEXTURE = 'G:\\results\meshPropagation\opticalFlow_super\Frame.%06i.jpg'
 
 # OUT_POLY_UP = 'G:\\results\meshPropagation\opticalFlow_super_projectedUp\Frame200k.%06i.obj'

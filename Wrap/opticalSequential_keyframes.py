@@ -3,21 +3,25 @@ import sys
 import json
 
 #KEYFRAMES = [1,25,27,29,31,33,35,37,39,45,60,70,73,76,80,82,84,86,88]
-KEYFRAMES = [88,94,96,98,100,102,104,106,108,110,112,115,120,130,150,153,155,157,159,161,165,170]
-#KEYFRAMES.reverse()
+#KEYFRAMES = [88,94,96,98,100,102,104,106,108,110,112,115,120,130,150,153,155,157,159,161,165,170]
+#KEYFRAMES = [520,524,526,528,531,550,563,565,567]
+#KEYFRAMES = [520,525,527,529,531,550,563,565,567]
+#KEYFRAMES = [567,582,584,586, 590, 596, 610, 614, 616, 618,621, 624]
+KEYFRAMES = [520,525,527,529,531]
+KEYFRAMES.reverse()
 
-INPUT_WRAP_FILE = 'G:\\results\\fullSequence\optiwrapKeyframes_legacy.wrap'
-OUTPUT_WRAP_FILE = 'G:\\results\\fullSequence\optiwrapKeyframes_legacy_temp.wrap'
+INPUT_WRAP_FILE = 'G:\\results\\fullSequence\optiwrapKeyframes_legacy_noMask.wrap'
+OUTPUT_WRAP_FILE = 'G:\\results\\fullSequence\optiwrapKeyframes_legacy_noMask_temp.wrap'
 
 
 MESH_TARGET = 'G:/20181113-CubicMotion-RC-Meshes-PNG/meshes/Frame%06i.obj'
 TARGET_TEXTURE = 'G:/20181113-CubicMotion-RC-Meshes-PNG/textures-png/Frame%06i_u1_v1.png'
 
-IN_MESH = 'G:\\results\\fullSequence\sneer_0170\opti_interpolation/frame.%04i.obj'
-IN_MESH_TEXTURE = 'G:\\results\\fullSequence\sneer_0170\opti_interpolation/frame.%04i.jpg'
+IN_MESH = 'G:\\results\\fullSequence\eyesClosed_0567\opti_interpolation/frame_m.%04i.obj'
+IN_MESH_TEXTURE = 'G:\\results\\fullSequence\eyesClosed_0567\opti_interpolation/frame_m.%04i.jpg'
 
-OUT_MESH = 'G:\\results\\fullSequence\sneer_0170\opti_interpolation/frame.%04i.obj'
-OUT_MESH_TEXTURE = 'G:\\results\\fullSequence\sneer_0170\opti_interpolation/frame.%04i.jpg'
+OUT_MESH = 'G:\\results\\fullSequence\eyesClosed_0567\opti_interpolation/frame_m.%04i.obj'
+OUT_MESH_TEXTURE = 'G:\\results\\fullSequence\eyesClosed_0567\opti_interpolation/frame_m.%04i.jpg'
 
 POLYGON_FILE = 'G:/results/wrapTests/mask_5k_optical.txt'
 

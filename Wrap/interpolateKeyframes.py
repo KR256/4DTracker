@@ -5,13 +5,18 @@ from shutil import copyfile
 
 
 
-KEYFRAMES = [1,25,27,29,31,33,35,37,39,45,60,70,73,76,80,82,84,86,88]
+#KEYFRAMES = [1,25,27,29,31,33,35,37,39,45,60,70,73,76,80,82,84,86,88]
+#KEYFRAMES = [88,94,96,98,100,102,104,106,108,110,112,115,120,130,150,153,155,157,159,161,165,170]
+#KEYFRAMES = [520,525,527,529,531,550,563,565,567]
+#KEYFRAMES = [531,550,563,565,567]
+#KEYFRAMES = [567,582,584,586, 590, 596, 610,  616, 618,621, 624]
+KEYFRAMES = [86,88,94,96,98,100,102,104,106,108,110,112,115,120,130,150,153,155,157,159,161,165,170]
 
 INPUT_WRAP_FILE = 'G:\\results\squint\interpolationScript.wrap'
 OUTPUT_WRAP_FILE = 'G:\\results\squint\interpolationScript_Temp.wrap'
-IN_MESH = 'G:\\results\\fullSequence\smile_0088\\opti_interpolation\\frame_backwards.%04i.obj'
-IN_MESH_2 = 'G:\\results\\fullSequence\smile_0088\\opti_interpolation\\frame_backwards.%04i.obj'
-OUT_MESH = 'G:\\results\\fullSequence\smile_0088\\opti_interpolation\\frame_backwards.%04i.obj'
+IN_MESH = 'G:\\results\\fullSequence\sneer_0170\opti_interpolation/frame_b.%04i.obj'
+IN_MESH_2 = 'G:\\results\\fullSequence\sneer_0170\opti_interpolation/frame_b.%04i.obj'
+OUT_MESH = 'G:\\results\\fullSequence\sneer_0170\opti_interpolation/frame_b.%04i.obj'
 
 
 # Creates meshes from frame2:NUM_FRAMES. Assumes first frame is manual.
